@@ -1,11 +1,10 @@
 {
   "name": "swr-login",
-  "version": "v2.0.1",
+  "version": "v2.1.0",
   "main": "src/main.ts",
   "scripts": {
     "build": "tsc",
-    "package": "ncc build -m --license licenses.txt",
-    "lint-create": "eslint --init",
+    "package": "ncc build src/main.ts -m --license licenses.txt -o dist",
     "lint": "eslint src",
     "format": "prettier --write **/*.ts",
     "format-check": "prettier --check **/*.ts",
@@ -13,30 +12,27 @@
     "debug": "ts-node-dev src/main.ts",
     "all": "npm run test && npm run lint && npm run format && npm run build && npm run package"
   },
-  "keywords": [
-    "actions",
-    "Huawei Cloud",
-    "container",
-    "github",
-    "swr"
-  ],
+  "keywords": ["actions", "Huawei Cloud", "container", "github", "swr"],
+  "engines": {
+    "node": ">=24"
+  },
   "dependencies": {
-    "@actions/core": "^1.9.0",
-    "@actions/io": "^1.1.2",
-    "@huaweicloud/huaweicloud-sdk-core": "^3.0.48-rc",
-    "@huaweicloud/huaweicloud-sdk-swr": "^3.0.48-rc"
+    "@actions/core": "^1.10.1",
+    "@actions/io": "^1.1.3",
+    "@huaweicloud/huaweicloud-sdk-core": "^3.1.0",
+    "@huaweicloud/huaweicloud-sdk-swr": "^3.1.0"
   },
   "devDependencies": {
-    "@types/jest": "^28.1.4",
-    "@typescript-eslint/eslint-plugin": "^5.30.5",
-    "@typescript-eslint/parser": "^5.30.5",
-    "@vercel/ncc": "^0.34.0",
-    "eslint": "^7.32.0",
-    "jest": "^28.1.2",
-    "prettier": "2.7.1",
-    "ts-jest": "^28.0.5",
-    "ts-node": "^10.8.2",
+    "@types/jest": "^29.5.0",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "@vercel/ncc": "^0.38.4",
+    "eslint": "^8.0.0",
+    "jest": "^29.0.0",
+    "prettier": "3.0.0",
+    "ts-jest": "^29.0.0",
+    "ts-node": "^10.9.2",
     "ts-node-dev": "^2.0.0",
-    "typescript": "^4.7.4"
+    "typescript": "^5.0.0"
   }
 }

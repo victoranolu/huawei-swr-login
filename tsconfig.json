@@ -1,14 +1,17 @@
 {
   "compilerOptions": {
-      "target": "es6",                                  /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */
-      "module": "commonjs",                                /* Specify what module code is generated. */
-      "rootDir": "./src",                                  /* Specify the root folder within your source files. */
-      "outDir": "./lib",                                   /* Specify an output folder for all emitted files. */
-      "esModuleInterop": true,                             /* Emit additional JavaScript to ease support for importing CommonJS modules. This enables */
-      "strict": true,                                      /* Enable all strict type-checking options. */
-      "noImplicitAny": true,                          /* Enable error reporting for expressions and declarations with an implied `any` type.*/
-      "sourceMap": true,
-      "skipLibCheck": true
+    "target": "ES2022",              // Node 24 supports ES2022 natively — no unnecessary downleveling
+    "module": "commonjs",            // Keep: ncc bundles as CJS, GitHub Actions requires it
+    "moduleResolution": "node",      // Explicit: avoids TS5 resolution surprises with commonjs
+    "lib": ["ES2022"],               // Explicit: unlocks Promise.allSettled, Array.at(), etc.
+    "rootDir": "./src",
+    "outDir": "./lib",               // Keep as-is: tsc output for IDE/type-checking only
+    "esModuleInterop": true,
+    "strict": true,
+    "noImplicitAny": true,           // Already covered by strict:true, but harmless to keep explicit
+    "sourceMap": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true  // Good hygiene, catches cross-OS import bugs
   },
   "exclude": ["node_modules", "**/*.test.ts", "jest*"]
 }
